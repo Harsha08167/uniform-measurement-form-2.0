@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniform Measurement Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .form-container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 550px;
+            animation: slideIn 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo img {
+            max-width: 160px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        /* === INPUT STYLING FIX === */
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper .icon {
+            position: absolute;
+            left: 15px;
+            color: #bdc3c7;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        input.form-input {
+            width: 100%;
+            padding: 14px 15px 14px 44px;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            font-size: 15px;
+            background: #fff;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            line-height: 1.5;
+        }
+
+        input.form-input:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+            outline: none;
+            background: #f8f9ff;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .note {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-top: 25px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="logo">
+            <img src="https://ijantakergarments.odoo.com/web/image/website/1/logo/baspi?unique=819ea54" alt="Ijan Taker Garments Logo">
+        </div>
+        <h1>Uniform Measurement Form</h1>
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfEjiUrfPIg6KaKu8dRXynLiWVSToefYF78UpeJ3kBxL099sw/formResponse" method="POST">
+
+            <div class="form-group">
+                <label for="entry.877086558">Student Name</label>
+                <div class="input-wrapper">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <input class="form-input" type="text" id="entry.877086558" name="entry.877086558" placeholder="Enter your name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="entry.1498135098">Class / Section</label>
+                <div class="input-wrapper">
+                    <span class="icon"><i class="fa-solid fa-school"></i></span>
+                    <input class="form-input" type="text" id="entry.1498135098" name="entry.1498135098" placeholder="e.g., 10A" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="entry.1424661284">Shirt Chest Size</label>
+                <div class="input-wrapper">
+                    <span class="icon"><i class="fa-solid fa-shirt"></i></span>
+                    <input class="form-input" type="text" id="entry.1424661284" name="entry.1424661284" placeholder="e.g., 36 inches" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="entry.2606285">Shoulder Size (inches)</label>
+                <div class="input-wrapper">
+                    <span class="icon"><i class="fa-solid fa-arrows-alt-h"></i></span>
+                    <input class="form-input" type="number" id="entry.2606285" name="entry.2606285" placeholder="e.g., 16" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="entry.954077988">Date of Measurement</label>
+                <div class="input-wrapper">
+                    <span class="icon"><i class="fa-solid fa-calendar-days"></i></span>
+                    <input class="form-input" type="date" id="entry.954077988" name="entry.954077988" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="entry.1015341493">Remarks</label>
+                <div class="input-wrapper">
+                    <span class="icon"><i class="fa-solid fa-comment"></i></span>
+                    <input class="form-input" type="text" id="entry.1015341493" name="entry.1015341493" placeholder="Any additional notes">
+                </div>
+            </div>
+
+            <button type="submit"><i class="fas fa-paper-plane"></i> Submit Measurement</button>
+        </form>
+
+        <div class="note">
+            This form submits directly to Google Forms. Ensure all fields are filled accurately.
+        </div>
+    </div>
+</body>
+</html>
