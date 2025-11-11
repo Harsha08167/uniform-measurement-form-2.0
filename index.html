@@ -1,360 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uniform Measurement Form</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uniform Measurement Form</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
 
-        .form-container {
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            width: 100%;
-            max-width: 550px;
-            animation: slideIn 0.6s ease-out;
-            position: relative;
-            overflow: hidden;
-        }
+    .form-container {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 550px;
+      animation: slideIn 0.6s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .form-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
-        }
+    .form-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+    }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(30px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
 
-        .logo {
-            text-align: center;
-            margin-bottom: 25px;
-        }
+    .logo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
 
-        .logo img {
-            max-width: 160px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+    .logo img {
+      max-width: 160px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
 
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 28px;
-            font-weight: 600;
-        }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: 600;
+    }
 
-        fieldset {
-            border: 2px solid #ecf0f1;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-            background: #f9f9f9;
-        }
+    fieldset {
+      border: 2px solid #ecf0f1;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      background: #f9f9f9;
+    }
 
-        legend {
-            font-size: 18px;
-            font-weight: 600;
-            color: #2c3e50;
-            padding: 0 10px;
-            background: #fff;
-            border-radius: 5px;
-        }
+    legend {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2c3e50;
+      padding: 0 10px;
+      background: #fff;
+      border-radius: 5px;
+    }
 
-        /* === INPUT STYLING FIX === */
-        .form-group {
-            margin-bottom: 22px;
-        }
+    .form-group {
+      margin-bottom: 22px;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #34495e;
-            font-weight: 500;
-            font-size: 16px;
-        }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #34495e;
+      font-weight: 500;
+      font-size: 16px;
+    }
 
-        .input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
 
-        .input-wrapper .icon {
-            position: absolute;
-            left: 15px;
-            color: #bdc3c7;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            pointer-events: none;
-        }
+    .input-wrapper .icon {
+      position: absolute;
+      left: 15px;
+      color: #bdc3c7;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      pointer-events: none;
+    }
 
-        input.form-input {
-            width: 100%;
-            padding: 14px 15px 14px 44px;
-            border: 2px solid #ecf0f1;
-            border-radius: 10px;
-            font-size: 15px;
-            background: #fff;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-            line-height: 1.5;
-        }
+    input.form-input {
+      width: 100%;
+      padding: 14px 15px 14px 44px;
+      border: 2px solid #ecf0f1;
+      border-radius: 10px;
+      font-size: 15px;
+      background: #fff;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+      line-height: 1.5;
+    }
 
-        input.form-input:focus {
-            border-color: #3498db;
-            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
-            outline: none;
-            background: #f8f9ff;
-        }
+    input.form-input:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+      outline: none;
+      background: #f8f9ff;
+    }
 
-        button {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-        }
+    button {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+    }
 
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-        }
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+    }
 
-        button:active {
-            transform: translateY(0);
-        }
+    button:active {
+      transform: translateY(0);
+    }
 
-        .note {
-            text-align: center;
-            color: #7f8c8d;
-            font-size: 14px;
-            margin-top: 25px;
-            font-style: italic;
-        }
+    .note {
+      text-align: center;
+      color: #7f8c8d;
+      font-size: 14px;
+      margin-top: 25px;
+      font-style: italic;
+    }
 
-        .success-message {
-            display: none;
-            text-align: center;
-            color: #27ae60;
-            font-weight: 600;
-            margin-top: 20px;
-            font-size: 16px;
-        }
-    </style>
+    .success-message {
+      display: none;
+      text-align: center;
+      color: #27ae60;
+      font-weight: 600;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
-    <div class="form-container">
-        <div class="logo">
-            <img src="https://ijantakergarments.odoo.com/web/image/website/1/logo/baspi?unique=819ea54" alt="Ijan Taker Garments Logo">
+  <div class="form-container">
+    <div class="logo">
+      <img
+        src="https://ijantakergarments.odoo.com/web/image/website/1/logo/baspi?unique=819ea54"
+        alt="Ijan Taker Garments Logo"
+      />
+    </div>
+    <h1>Uniform Measurement Form</h1>
+    <form
+      id="measurementForm"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSd6125I3PHv5zai5GDKN_bXWQy_MYGSCVX-GGi2P2dpmbIDXQ/formResponse"
+      method="POST"
+    >
+      <!-- Initial Fields -->
+      <div class="form-group">
+        <label for="entry.1877406600">School Name</label>
+        <div class="input-wrapper">
+          <span class="icon"><i class="fa-solid fa-school"></i></span>
+          <input
+            class="form-input"
+            type="text"
+            id="entry.1877406600"
+            name="entry.1877406600"
+            placeholder="Enter School name"
+            required
+          />
         </div>
-        <h1>Uniform Measurement Form</h1>
-        <form id="measurementForm" action="https://docs.google.com/forms/d/e/1FAIpQLSd6125I3PHv5zai5GDKN_bXWQy_MYGSCVX-GGi2P2dpmbIDXQ/formResponse" method="POST">
+      </div>
 
-            <!-- Initial Fields -->
-            <div class="form-group">
-                <label for="entry.1877406600">School Name</label>
-                <div class="input-wrapper">
-                    <span class="icon"><i class="fa-solid fa-school"></i></span>
-                    <input class="form-input" type="text" id="entry.1877406600" name="entry.1877406600" placeholder="Enter School name" required>
-                </div>
-            </div>
+      <div class="form-group">
+        <label for="entry.641280379">Student Name</label>
+        <div class="input-wrapper">
+          <span class="icon"><i class="fa-solid fa-user"></i></span>
+          <input
+            class="form-input"
+            type="text"
+            id="entry.641280379"
+            name="entry.641280379"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+      </div>
 
-            <div class="form-group">
-                <label for="entry.641280379">Student Name</label>
-                <div class="input-wrapper">
-                    <span class="icon"><i class="fa-solid fa-user"></i></span>
-                    <input class="form-input" type="text" id="entry.641280379" name="entry.641280379" placeholder="Enter your name" required>
-                </div>
-            </div>
+      <div class="form-group">
+        <label for="entry.411498902">Class / Section</label>
+        <div class="input-wrapper">
+          <span class="icon"><i class="fa-solid fa-school"></i></span>
+          <input
+            class="form-input"
+            type="text"
+            id="entry.411498902"
+            name="entry.411498902"
+            placeholder="e.g., 10A"
+            required
+          />
+        </div>
+      </div>
 
-            <div class="form-group">
-                <label for="entry.411498902">Class / Section</label>
-                <div class="input-wrapper">
-                    <span class="icon"><i class="fa-solid fa-school"></i></span>
-                    <input class="form-input" type="text" id="entry.411498902" name="entry.411498902" placeholder="e.g., 10A" required>
-                </div>
-            </div>
+      <!-- Shirt Measurement Section -->
+      <fieldset>
+        <legend>Shirt Measurement</legend>
 
-            <!-- Shirt Measurement Section -->
-            <fieldset>
-                <legend>Shirt Measurement</legend>
-
-                <div class="form-group">
-                    <label for="entry.1395577058">Shirt Length (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-ruler-vertical"></i></span>
-                        <input class="form-input" type="number" id="entry.1395577058" name="entry.1395577058" placeholder="e.g., 14" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.361568882">Shoulder Size (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-arrows-alt-h"></i></span>
-                        <input class="form-input" type="number" id="entry.361568882" name="entry.361568882" placeholder="e.g., 11" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.1488874018">Shirt Chest Size (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-shirt"></i></span>
-                        <input class="form-input" type="number" id="entry.1488874018" name="entry.1488874018" placeholder="e.g., 16" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.825372493">Waist Size (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
-                        <input class="form-input" type="number" id="entry.825372493" name="entry.825372493" placeholder="e.g., 17" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.1719103091">Hip Size (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
-                        <input class="form-input" type="number" id="entry.1719103091" name="entry.1719103091" placeholder="e.g., 18" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.1859359601">Remarks</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-comment"></i></span>
-                        <input class="form-input" type="text" id="entry.1859359601" name="entry.1859359601" placeholder="Any additional notes for shirt">
-                    </div>
-                </div>
-            </fieldset>
-
-            <!-- Pant/Skirt Section -->
-            <fieldset>
-                <legend>Half pant / Full pant / Skirt / Pino</legend>
-
-                <div class="form-group">
-                    <label for="entry.1777949255">Pant Length (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-ruler-vertical"></i></span>
-                        <input class="form-input" type="number" id="entry.1777949255" name="entry.1777949255" placeholder="e.g., 20" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.1873782698">Waist Size (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
-                        <input class="form-input" type="number" id="entry.1873782698" name="entry.1873782698" placeholder="e.g., 21" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.808485925">Hip Size (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
-                        <input class="form-input" type="number" id="entry.808485925" name="entry.808485925" placeholder="e.g., 22" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.736764743">Thigh Size (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
-                        <input class="form-input" type="number" id="entry.736764743" name="entry.736764743" placeholder="e.g., 23" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.2069801271">Knee Size (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
-                        <input class="form-input" type="number" id="entry.2069801271" name="entry.2069801271" placeholder="e.g., 24" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.1382953665">BIM (inches)</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
-                        <input class="form-input" type="number" id="entry.1382953665" name="entry.1382953665" placeholder="e.g., 25" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="entry.2111767691">Remarks</label>
-                    <div class="input-wrapper">
-                        <span class="icon"><i class="fa-solid fa-comment"></i></span>
-                        <input class="form-input" type="text" id="entry.2111767691" name="entry.2111767691" placeholder="Any additional notes for pant/skirt">
-                    </div>
-                </div>
-            </fieldset>
-
-            <button type="submit"><i class="fas fa-paper-plane"></i> Submit Measurement</button>
-        </form>
-
-        <div class="success-message" id="successMessage">
-            Form submitted successfully! Fields have been reset for a new entry.
+        <div class="form-group">
+          <label for="entry.1395577058">Shirt Length (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-ruler-vertical"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.1395577058"
+              name="entry.1395577058"
+              placeholder="e.g., 14"
+              required
+            />
+          </div>
         </div>
 
-        <div class="note">
-            This form submits directly to Google Forms. Ensure all fields are filled accurately.
+        <div class="form-group">
+          <label for="entry.361568882">Shoulder Size (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-arrows-alt-h"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.361568882"
+              name="entry.361568882"
+              placeholder="e.g., 11"
+              required
+            />
+          </div>
         </div>
+
+        <div class="form-group">
+          <label for="entry.1488874018">Shirt Chest Size (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-shirt"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.1488874018"
+              name="entry.1488874018"
+              placeholder="e.g., 16"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="entry.825372493">Shirt Waist Size (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.825372493"
+              name="entry.825372493"
+              placeholder="e.g., 17"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="entry.1719103091">Shirt Hip Size (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.1719103091"
+              name="entry.1719103091"
+              placeholder="e.g., 18"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="entry.1859359601">Shirt Remarks</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-comment"></i></span>
+            <input
+              class="form-input"
+              type="text"
+              id="entry.1859359601"
+              name="entry.1859359601"
+              placeholder="Any additional notes for shirt"
+            />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Pant/Skirt Section -->
+      <fieldset>
+        <legend>Half pant / Full pant / Skirt / Pino</legend>
+
+        <div class="form-group">
+          <label for="entry.1777949255">Pant Length (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-ruler-vertical"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.1777949255"
+              name="entry.1777949255"
+              placeholder="e.g., 20"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="entry.1873782698">Pant Waist Size (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.1873782698"
+              name="entry.1873782698"
+              placeholder="e.g., 21"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="entry.808485925">Pant Hip Size (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.808485925"
+              name="entry.808485925"
+              placeholder="e.g., 22"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="entry.736764743">Pant Thigh Size (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.736764743"
+              name="entry.736764743"
+              placeholder="e.g., 23"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="entry.2069801271">Pant Knee Size (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.2069801271"
+              name="entry.2069801271"
+              placeholder="e.g., 24"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="entry.1382953665">Pant BIM (inches)</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+            <input
+              class="form-input"
+              type="number"
+              id="entry.1382953665"
+              name="entry.1382953665"
+              placeholder="e.g., 25"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="entry.2111767691">Pant Remarks</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-comment"></i></span>
+            <input
+              class="form-input"
+              type="text"
+              id="entry.2111767691"
+              name="entry.2111767691"
+              placeholder="Any additional notes for pant/skirt"
+            />
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit">
+        <i class="fas fa-paper-plane"></i> Submit Measurement
+      </button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+      Form submitted successfully! Fields have been reset for a new entry.
     </div>
 
-    <script>
-        document.getElementById('measurementForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
+    <div class="note">
+      This form submits directly to Google Forms. Ensure all fields are filled accurately.
+    </div>
+  </div>
 
-            const formData = new FormData(this);
+  <script>
+    document
+      .getElementById("measurementForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent default form submission
 
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors' // Handle CORS issues
-            }).then(() => {
-                // On success, reset the form and show success message
-                this.reset();
-                const successMsg = document.getElementById('successMessage');
-                successMsg.style.display = 'block';
-                setTimeout(() => {
-                    successMsg.style.display = 'none';
-                }, 3000); // Hide message after 3 seconds
-            }).catch(error => {
-                alert('Submission failed. Please try again. Error: ' + error.message);
-            });
-        });
-    </script>
+        const formData = new FormData(this);
+
+        fetch(this.action, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors", // Handle CORS issues
+        })
+          .then(() => {
+            // On success, reset the form and show success message
+            this.reset();
+            const successMsg = document.getElementById("successMessage");
+            successMsg.style.display = "block";
+            setTimeout(() => {
+              successMsg.style.display = "none";
+            }, 3000); // Hide message after 3 seconds
+          })
+          .catch((error) => {
+            alert("Submission failed. Please try again. Error: " + error.message);
+          });
+      });
+  </script>
 </body>
 </html>
