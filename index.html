@@ -66,6 +66,23 @@
             font-weight: 600;
         }
 
+        fieldset {
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: #f9f9f9;
+        }
+
+        legend {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            padding: 0 10px;
+            background: #fff;
+            border-radius: 5px;
+        }
+
         /* === INPUT STYLING FIX === */
         .form-group {
             margin-bottom: 22px;
@@ -146,6 +163,15 @@
             margin-top: 25px;
             font-style: italic;
         }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #27ae60;
+            font-weight: 600;
+            margin-top: 20px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -154,8 +180,9 @@
             <img src="https://ijantakergarments.odoo.com/web/image/website/1/logo/baspi?unique=819ea54" alt="Ijan Taker Garments Logo">
         </div>
         <h1>Uniform Measurement Form</h1>
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfEjiUrfPIg6KaKu8dRXynLiWVSToefYF78UpeJ3kBxL099sw/formResponse" method="POST">
+        <form id="measurementForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfEjiUrfPIg6KaKu8dRXynLiWVSToefYF78UpeJ3kBxL099sw/formResponse" method="POST">
 
+            <!-- Initial Fields -->
             <div class="form-group">
                 <label for="entry.1315110633">School Name</label>
                 <div class="input-wrapper">
@@ -180,37 +207,154 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="entry.1424661284">Shirt Chest Size</label>
-                <div class="input-wrapper">
-                    <span class="icon"><i class="fa-solid fa-shirt"></i></span>
-                    <input class="form-input" type="text" id="entry.1424661284" name="entry.1424661284" placeholder="e.g., 36 inches" required>
-                </div>
-            </div>
+            <!-- Shirt Measurement Section -->
+            <fieldset>
+                <legend>Shirt Measurement</legend>
 
-            <div class="form-group">
-                <label for="entry.2606285">Shoulder Size (inches)</label>
-                <div class="input-wrapper">
-                    <span class="icon"><i class="fa-solid fa-arrows-alt-h"></i></span>
-                    <input class="form-input" type="number" id="entry.2606285" name="entry.2606285" placeholder="e.g., 16" required>
+                <div class="form-group">
+                    <label for="entry.1424661284">Shirt Length (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-ruler-vertical"></i></span>
+                        <input class="form-input" type="number" id="entry.1424661284" name="entry.1424661284" placeholder="e.g., 30" required>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="entry.1015341493">Remarks</label>
-                <div class="input-wrapper">
-                    <span class="icon"><i class="fa-solid fa-comment"></i></span>
-                    <input class="form-input" type="text" id="entry.1015341493" name="entry.1015341493" placeholder="Any additional notes">
+                <div class="form-group">
+                    <label for="entry.2606285">Shoulder Size (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-arrows-alt-h"></i></span>
+                        <input class="form-input" type="number" id="entry.2606285" name="entry.2606285" placeholder="e.g., 16" required>
+                    </div>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="entry.2016508656">Shirt Chest Size (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-shirt"></i></span>
+                        <input class="form-input" type="number" id="entry.2016508656" name="entry.2016508656" placeholder="e.g., 36" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="entry.213007500">Waist Size (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+                        <input class="form-input" type="number" id="entry.213007500" name="entry.213007500" placeholder="e.g., 28" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="entry.289953010">Hip Size (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+                        <input class="form-input" type="number" id="entry.289953010" name="entry.289953010" placeholder="e.g., 38" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="entry.1015341493">Remarks</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-comment"></i></span>
+                        <input class="form-input" type="text" id="entry.1015341493" name="entry.1015341493" placeholder="Any additional notes for shirt">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Pant/Skirt Section -->
+            <fieldset>
+                <legend>Half pant / Full pant / Skirt / Pino</legend>
+
+                <div class="form-group">
+                    <label for="entry.1610087048">Pant Length (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-ruler-vertical"></i></span>
+                        <input class="form-input" type="number" id="entry.1610087048" name="entry.1610087048" placeholder="e.g., 40" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="entry.1771525867">Waist Size (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+                        <input class="form-input" type="number" id="entry.1771525867" name="entry.1771525867" placeholder="e.g., 30" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="entry.1036325150">Hip Size (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+                        <input class="form-input" type="number" id="entry.1036325150" name="entry.1036325150" placeholder="e.g., 36" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="entry.1268524886">Thigh Size (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+                        <input class="form-input" type="number" id="entry.1268524886" name="entry.1268524886" placeholder="e.g., 22" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="entry.411761538">Knee Size (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+                        <input class="form-input" type="number" id="entry.411761538" name="entry.411761538" placeholder="e.g., 16" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="entry.298979663">BIM (inches)</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-ruler"></i></span>
+                        <input class="form-input" type="number" id="entry.298979663" name="entry.298979663" placeholder="e.g., 28" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="entry.722863752">Remarks</label>
+                    <div class="input-wrapper">
+                        <span class="icon"><i class="fa-solid fa-comment"></i></span>
+                        <input class="form-input" type="text" id="entry.722863752" name="entry.722863752" placeholder="Any additional notes for pant/skirt">
+                    </div>
+                </div>
+            </fieldset>
 
             <button type="submit"><i class="fas fa-paper-plane"></i> Submit Measurement</button>
         </form>
+
+        <div class="success-message" id="successMessage">
+            Form submitted successfully! Fields have been reset for a new entry.
+        </div>
 
         <div class="note">
             This form submits directly to Google Forms. Ensure all fields are filled accurately.
         </div>
     </div>
+
+    <script>
+        document.getElementById('measurementForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Handle CORS issues
+            }).then(() => {
+                // On success, reset the form and show success message
+                this.reset();
+                const successMsg = document.getElementById('successMessage');
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 3000); // Hide message after 3 seconds
+            }).catch(error => {
+                alert('Submission failed. Please try again. Error: ' + error.message);
+            });
+        });
+    </script>
 </body>
 </html>
-
